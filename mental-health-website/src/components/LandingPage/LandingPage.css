@@ -1,0 +1,233 @@
+/* LandingPage.css */
+.landing-page {
+    /* display: flex; */ /* Remove this line */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1d3f72;
+    color: #d8ebf9;
+    font-family: 'Arial', sans-serif;
+}
+
+#landing-section {
+    background-color: #eee7d8; /* Your chosen background color */
+    margin-top: 25px; /* Adjust padding as needed */
+    text-align: center;
+    margin-bottom: 0px;
+    width: auto; /* This will make the section take the width of its content */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+  }
+  
+  
+  .landing-content {
+    flex: 1; /* Allows the text section to grow */
+    text-align: left; /* Aligns the text to the left */
+    padding-right: 20px; /* Adds some space between the text and the image */
+  }
+  
+  .landing-image {
+    /* Control the size of the image here */
+    width: auto; /* Adjust width as needed */
+    max-width: 50%; /* Maximum width of the image */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  /* Ensure the image does not exceed its container */
+  .landing-image img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+  }
+  
+  
+  
+  /* Header Styles */
+  header {
+    background-color: #1d3f72;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+  }
+  .list{
+    padding: inherit;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    max-width: 100%; /* Adjust this value as needed */
+    height: 80px;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  ul {
+    list-style-type: none;
+    display: flex;
+    width: 100%; /* Spread links across the whole width */
+  }
+  
+  li {
+    flex-grow: 1; /* Each link takes up equal space */
+    text-align: center; /* Center align links */
+  }
+  
+  a {
+    text-decoration: none;
+    color: #d8ebf9;
+    transition: color 0.3s ease;
+    display: block; /* Make links fill the whole space */
+    padding: 10px; /* Add padding for better clickability */
+  }
+  
+  nav a:hover {
+    border-radius: 15px;
+    color: #1d3f72;
+    padding: 5px 3px;
+    background-image: linear-gradient(to right, #d8ebf9 0%, #eee7d8 100%);
+    margin-right: 10px;
+  }
+  .nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  }
+
+  /* Landing Section Styles */
+  
+  #landing-section {
+    background-color: #eee7d8;
+    padding: 100px;
+    text-align: center;
+    width: auto;
+  }
+  
+  .landing-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 50px;
+  }
+  
+  .landing-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  #landing-section h2 {
+    font-size: 2.5rem;
+    color: #785471;
+  }
+  
+  #landing-section p {
+    font-size: 1.2rem;
+    color: #785471;
+  }
+  
+  /* About Section Styles */
+  
+  #about-section {
+    background-color: #d8ebf9;
+    padding: 100px;
+    text-align: center;
+  }
+  
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  #about-section h2 {
+    font-size: 2.5rem;
+    color: #1d3f72;
+  }
+  
+  #about-section p {
+    font-size: 1.2rem;
+    color: #1d3f72;
+  }
+  
+  /* Services Section Styles */
+  
+  #services-section {
+    background-color: #71c2cc;
+    padding: 100px 0; /* Top and bottom padding only */
+    text-align: center;
+  }
+  
+  .services-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+  }
+  
+  /* Style for the title */
+  .services-title {
+    margin-bottom: 50px; /* Space between title and cards */
+  }
+  
+  .service-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    margin-bottom: 20px; /* Space between cards */
+    flex-direction: row;
+  }
+  
+  .service-card h3 {
+    color: #1d3f72;
+  }
+  
+  .service-card p {
+    color: #1d3f72;
+  }
+  
+  button {
+    background-color: #4996a2;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #5699d2;
+  }
+  
+  /* Contact Section Styles */
+  
+  #contact-section {
+    background-color:  #1d3f72;
+    padding: 100px;
+    text-align: center;
+  }
+  
+  .contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  #contact-section h2 {
+    font-size: 2.5rem;
+    color: #eee7d8;
+  }
+  
+  #contact-section p {
+    font-size: 1.2rem;
+    color: #eee7d8;
+  }
+  

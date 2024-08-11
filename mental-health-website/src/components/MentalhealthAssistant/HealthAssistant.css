@@ -1,0 +1,135 @@
+/* HealthAssistant.css */
+
+.mental-health-assistant {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #fff;
+    font-family: 'Arial', sans-serif;
+    overflow:hidden
+  }
+
+.meme-image {
+  width: 400px;
+  height: 500px;
+  margin-bottom: 5px; /* Adjust the margin as needed */
+}
+
+.assistant-heading {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #1d3f72;
+}
+
+.messages {
+  flex-grow: 1;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none;
+  padding: 10px;
+  background-color: #fff;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  margin-bottom: 60px;
+  text-align: left;
+
+}
+
+.assistant-heading{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.message {
+  flex-direction: column;
+  align-items: flex-start;
+  display: flex;
+  font-family: 'Courier New', Courier, monospace;
+  max-width: 50%;
+  border-radius: 10px;
+  word-wrap: break-word;
+
+  /* Glassmorphism styles */
+  background: rgba(255, 255, 255, 0.1); /* Lower opacity for less transparency */
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: #5699d2;
+  color: #fff;
+  margin-left: auto;
+}
+
+.message.bot {
+  align-self: flex-start;
+  background-color: #d8ebf9;
+  color: #1d3f72;
+  margin-right: auto;
+}
+
+.input-form {
+    position: fixed;
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    animation: none;
+    transform: translateY(100vh); /* Initially moves the input form off-screen */
+    transition: transform 0.5s ease-out;
+
+}
+
+.input-form.active {
+    transform: translateY(0); /* Brings the input form into its intended position */
+}
+
+
+.input-form input {
+  flex-grow: 1;
+  padding: 20px;
+  margin-right: 10px;
+  border: 1px solid #71c2cc;
+  border-radius: 20px;
+  background-color: #d8ebf9;
+  outline: none;
+}
+
+.input-form input:focus {
+  border-color: #1d3f72;
+}
+
+.input-form button {
+  padding: 20px 30px;
+  border: none;
+  border-radius: 20px;
+  background-color: #1d3f72;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.input-form button:hover {
+  background-color: #4996a2;
+}
+
+/* Animation for first-time loading */
+@keyframes fadeInLeftToRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.first-load-animation:not(.input-form) {
+    animation: fadeInLeftToRight 0.5s ease-out;
+}
+
