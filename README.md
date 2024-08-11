@@ -13,3 +13,4 @@ Thera.py's features offer cost-effective initial screenings. Users can access pr
 Thera.py serves as an accessible and private platform, particularly beneficial for individuals who may face barriers in seeking immediate professional assistance. The platform acts as a first step, encouraging those who might otherwise hesitate to take the first step to mental well-being.
 
 ## Flow of the Application 
+![Detailed working of Thera.Py](TheraPy.png)
