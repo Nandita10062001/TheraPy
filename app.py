@@ -44,7 +44,7 @@ def predict_diagnosis(disease):
             raise FileNotFoundError(f"File was not created: {image_path}")
 
         load_model()  # Ensure YOLO model is loaded
-        prediction = predict(disease, image_path)  # Pass the image path to predict
+        prediction = predict(disease)  # Pass the image path to predict
         
         os.remove(image_path)  # Clean up the uploaded image after prediction
         
