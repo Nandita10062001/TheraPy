@@ -9,18 +9,32 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 client = OpenAI(api_key=openai.api_key)
 
 model = None
+
 def load_model():
     global model
     if model is None:
-        model = YOLO('best(1).pt')
+        try:
+            model = YOLO('best.pt')
+            print("Model loaded successfully.")
+        except Exception as e:
+            print(f"Error loading model: {e}")
 
 def predict(disease):
     load_model()
-    #get most recent file in uploaded_picture directory
-    most_recent_file = max(['uploaded_picture' + '/' + f for f in os.listdir('uploaded_picture')], key=os.path.getctime)
-    result = model.predict(most_recent_file)
-    os.remove(most_recent_file)
+    uploaded_dir = 'uploaded_picture'
+    if not os.path.exists(uploaded_dir) or not os.listdir(uploaded_dir):
+        return "No images found in the upload directory."
+
+    most_recent_file = max([os.path.join(uploaded_dir, f) for f in os.listdir(uploaded_dir)], key=os.path.getctime)
+    print(f"Using file: {most_recent_file}")
+
+    try:
+        result = model.predict(most_recent_file)
+    except Exception as e:
+        return f"Error predicting image: {e}"
+
     probs = result[0].probs.data.cpu().numpy()
+    print(f"Prediction probabilities: {probs}")
     if disease.lower() == 'adhd':
         disease = 'ADHD'
         prob = probs[0]
