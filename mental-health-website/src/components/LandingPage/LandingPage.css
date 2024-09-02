@@ -1,233 +1,384 @@
-/* LandingPage.css */
-.landing-page {
-    /* display: flex; */ /* Remove this line */
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #1d3f72;
-    color: #d8ebf9;
-    font-family: 'Arial', sans-serif;
+/* Keyframes for fadeInTop animation */
+@keyframes fadeInTop {
+    0% {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+/* Keyframes for left-to-right animation */
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* Apply initial fade-in animation to sections */
+.section-animation {
+    background-color: #1d3f72; 
+    overflow: hidden; 
+    animation: fadeInTop 1s ease-in-out;
 }
 
-#landing-section {
-    background-color: #eee7d8; /* Your chosen background color */
-    margin-top: 25px; /* Adjust padding as needed */
-    text-align: center;
-    margin-bottom: 0px;
-    width: auto; /* This will make the section take the width of its content */
-    display: flex; /* Use flexbox to align items */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
+
+.section-active {
+    animation: slideInFromLeft 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+.section-content {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+}
+  
+  /* Landing Page Style */
+  .landing-page {
+      animation: fadeInTop 1s ease-in-out;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #1d3f72;
+      color: #d8ebf9;
+      font-family: 'Arial', sans-serif;
   }
-  
-  
-  .landing-content {
-    flex: 1; /* Allows the text section to grow */
-    text-align: left; /* Aligns the text to the left */
-    padding-right: 20px; /* Adds some space between the text and the image */
-  }
-  
-  .landing-image {
-    /* Control the size of the image here */
-    width: auto; /* Adjust width as needed */
-    max-width: 50%; /* Maximum width of the image */
-    height: auto; /* Maintain aspect ratio */
-  }
-  
-  /* Ensure the image does not exceed its container */
-  .landing-image img {
-    width: 100%; /* Make the image fill the container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px;
-  }
-  
-  
   
   /* Header Styles */
-  header {
-    background-color: #1d3f72;
-    padding: 20px;
-    position: fixed;
-    top: 0;
+header {
+    position: fixed; 
+    top: 15px;
+    right: 0;
     left: 0;
     width: 100%;
-    height: fit-content;
-  }
-  .list{
-    padding: inherit;
-  }
-  nav {
+    z-index: 1000; 
+    display: flex;
+    justify-content: center;
+}
+
+/* Header Navigation Styles */
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: transparent;
+    background-color: #1d3f72; 
     transition: background-color 0.3s;
-    max-width: 100%; /* Adjust this value as needed */
-    height: 80px;
-  }
-  
-  .logo {
+    max-width: 1500px; 
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 150px;
+    box-sizing: border-box; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.logo {
     width: 100px;
-    height: 100px;
-  }
-  
-  ul {
+    height: 60px;
+    padding: 2px;
+}
+
+ul {
     list-style-type: none;
     display: flex;
-    width: 100%; /* Spread links across the whole width */
-  }
-  
-  li {
-    flex-grow: 1; /* Each link takes up equal space */
-    text-align: center; /* Center align links */
-  }
-  
-  a {
+    width: 95%;
+}
+
+li {
+    flex-grow: 1;
+    text-align: center;
+}
+
+a {
     text-decoration: none;
     color: #d8ebf9;
     transition: color 0.3s ease;
-    display: block; /* Make links fill the whole space */
-    padding: 10px; /* Add padding for better clickability */
-  }
-  
-  nav a:hover {
+    display:block;
+    padding: 10px 15px;
+}
+
+nav a:hover {
     border-radius: 15px;
     color: #1d3f72;
-    padding: 5px 3px;
+    padding: 5px 50px; 
     background-image: linear-gradient(to right, #d8ebf9 0%, #eee7d8 100%);
-    margin-right: 10px;
-  }
-  .nav-scrolled {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
-  }
+    margin-right: 0; 
+    margin-left: 0; 
+    display: inline-block;
+}
 
+  
   /* Landing Section Styles */
-  
-  #landing-section {
-    background-color: #eee7d8;
-    padding: 100px;
-    text-align: center;
-    width: auto;
-  }
-  
-  .landing-image {
-    width: 100%;
-    height: auto;
+#landing-section {
+    background-color: #ffffff;
+    padding: 100px 50px; 
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    margin-top: 60px;
+}
+
+.landing-content {
+    max-width: 45%; 
+    margin-top: 15px;
+    text-align: justify; 
+}
+
+.landing-image {
+    width: 20%;
+    height: 20%;
     border-radius: 10px;
-    margin-top: 50px;
-  }
-  
-  .landing-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  #landing-section h2 {
+    margin-right: 80px;
+    margin-top: 40px;
+}
+
+#landing-section h2 {
     font-size: 2.5rem;
     color: #785471;
-  }
-  
-  #landing-section p {
+    margin-bottom: 20px; 
+}
+
+#landing-section p {
     font-size: 1.2rem;
     color: #785471;
-  }
+    text-align: justify; 
+    line-height: 1.6; 
+}
+
+@media (max-width: 1200px) {
+    #landing-section {
+        flex-direction: column; 
+    }
+
+    .landing-content {
+        max-width: 80%;
+        font-size: 1.2rem; 
+    }
+
+    .landing-image {
+        width: 30%; 
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    #landing-section {
+        flex-direction: column; 
+    }
+
+    .landing-content {
+        max-width: 90%; 
+        font-size: 1rem; 
+    }
+
+    .landing-image {
+        width: 50%; 
+        margin-top: 15px;
+        margin-right: 15px; 
+    }
+}
+
+@media (max-width: 480px) {
+    #landing-section {
+        flex-direction: column;
+    }
+
+    .landing-content {
+        max-width: 100%; 
+        font-size: 0.9rem;
+    }
+
+    .landing-image {
+        width: 60%; 
+        margin-top: 10px; 
+        margin-right: 25px;
+        
+    }
+}
   
   /* About Section Styles */
-  
   #about-section {
+      background-color: #d8ebf9;
+      padding: 100px;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+  }
+  .about-image {
+    width: 15%;
+    height: 20%;
+    border-radius: 10px;
+    margin-right: 80px;
+    margin-bottom: 15px;
+}
+
+.about-content {
+    max-width: 100%; 
+    margin: 0 auto; 
+    text-align: justify; 
+    padding: 20px;
     background-color: #d8ebf9;
-    padding: 100px;
-    text-align: center;
-  }
-  
-  .about-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  #about-section h2 {
+    border-radius: 15px; 
+    box-shadow: 8px 8px 15px rgba(193, 215, 228, 0.8), 
+                -8px -8px 15px rgba(238, 250, 255, 0.8); 
+    opacity: 0.9; 
+}
+
+
+#about-section h2 {
     font-size: 2.5rem;
     color: #1d3f72;
-  }
-  
-  #about-section p {
+    margin-bottom: 20px; 
+}
+
+#about-section p {
     font-size: 1.2rem;
     color: #1d3f72;
-  }
-  
+}
+
+/* Adjustments for different screen sizes */
+/* Adjustments for different screen sizes */
+@media (max-width: 1200px) {
+    .about-content {
+        max-width: 90%;
+        font-size: 1.2rem; /* Adjust font size */
+    }
+
+    .about-image {
+        width: 20%; /* Adjust image size */
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        max-width: 95%;
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .about-image {
+        width: 50%; /* Adjust image size */
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-content {
+        max-width: 100%;
+        font-size: 0.9rem; /* Smaller font size */
+    }
+
+    .about-image {
+        width: 60%; /* Adjust image size */
+        margin-top: 20px;
+    }
+}
+
   /* Services Section Styles */
-  
-  #services-section {
+#services-section {
     background-color: #71c2cc;
-    padding: 100px 0; /* Top and bottom padding only */
+    padding: 100px 0;
     text-align: center;
-  }
-  
-  .services-content {
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+/* Title styles */
+.services-title {
+    margin-bottom: 50px;
+    color: #ffffff;
+    font-size: 2rem; 
+}
+
+
+.services-content {
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center children horizontally */
-  }
-  
-  /* Style for the title */
-  .services-title {
-    margin-bottom: 50px; /* Space between title and cards */
-  }
-  
-  .service-card {
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+}
+
+
+.service-card {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     width: 30%;
-    margin-bottom: 20px; /* Space between cards */
-    flex-direction: row;
-  }
-  
-  .service-card h3 {
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.service-card h3 {
     color: #1d3f72;
-  }
-  
-  .service-card p {
+}
+
+.service-card p {
     color: #1d3f72;
-  }
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 1200px) {
+    .service-card {
+        width: 100%;
+        margin: 25px; 
+        align-content: center;/* Adjust width for slightly smaller screens */
+    }
+}
+
+@media (max-width: 900px) {
+    .service-card {
+        width: 100%;
+        margin: 25px;
+        align-content: center; /* Stack cards vertically on smaller screens */
+    }
+}
+
   
   button {
-    background-color: #4996a2;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+      background-color: #4996a2;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
   }
   
   button:hover {
-    background-color: #5699d2;
+      background-color: #5699d2;
   }
   
   /* Contact Section Styles */
-  
   #contact-section {
-    background-color:  #1d3f72;
-    padding: 100px;
-    text-align: center;
+      background-color: #1d3f72;
+      padding: 100px;
+      text-align: center;
   }
   
   .contact-content {
-    max-width: 800px;
-    margin: 0 auto;
+      max-width: 800px;
+      margin: 0 auto;
   }
   
   #contact-section h2 {
-    font-size: 2.5rem;
-    color: #eee7d8;
+      font-size: 2.5rem;
+      color: #eee7d8;
   }
   
   #contact-section p {
-    font-size: 1.2rem;
-    color: #eee7d8;
+      font-size: 1.2rem;
+      color: #eee7d8;
   }
   

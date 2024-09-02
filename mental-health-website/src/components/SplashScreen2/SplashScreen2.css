@@ -1,0 +1,50 @@
+.splash-screen-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #d8ebf9 0%, #eee7d8 100%);
+    color: #36454F;
+}
+  
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: 'Great Vibes',cursive;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 33px; 
+
+  }  
+  
+  .typing-effect div {
+    display: inline-block;
+    margin-right: 10px;
+    opacity: 0;
+    animation: fadeInLeft 1s forwards;
+  }
+  
+  .typing-effect .visible {
+    opacity: 1;
+  }
+  
+  .circular-image {
+    border-radius: 50%; 
+    width: 200px; 
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 20px; 
+    margin-right: 15px;
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
