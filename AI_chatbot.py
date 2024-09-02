@@ -47,7 +47,7 @@ def get_response(user_input):
             messages=[
                 {
                     "role": "user",
-                    "content": "Give the answer to this specific prompt that i mention below. If it is not related to mental health then refuse to answer it becasue it is not related to mental health. here is the prompt:" +user_input,
+                    "content": "Give the answer to this specific prompt that i mention below. If it is not related to mental health then refuse to answer it becasue it is not related to mental health but do allow and respond to normal gratitude messages like 'Hi', 'Bye', 'Thank You'. here is the prompt:" +user_input,
                 }
             ],
             model="gpt-3.5-turbo",
