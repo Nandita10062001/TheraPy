@@ -38,7 +38,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<LandingPage />} /> {/* Default route */}
-            <Route exact path="/landing" element={<LandingPage />} />
+            <Route exact path="/landingpage" element={<LandingPage />} />
             <Route exact path="/mental-health-assistant" element={<MentalHealthAssistant />} />
             <Route exact path="/mind-care" element={<MindCare />} />
             <Route exact path="/mri-scan" element={<MriScan />} />
