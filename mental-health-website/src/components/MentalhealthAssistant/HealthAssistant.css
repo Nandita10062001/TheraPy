@@ -1,58 +1,65 @@
-/* HealthAssistant.css */
-
+/* Base styles */
 .mental-health-assistant {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    background-color: #fff;
-    font-family: 'Arial', sans-serif;
-    overflow:hidden
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
 
-.meme-image {
-  width: 400px;
-  height: 500px;
-  margin-bottom: 5px; /* Adjust the margin as needed */
+/* Header with back button */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.back-button {
+  font-size: 1.5rem;
+  color: #1d3f72;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.back-button:hover {
+  color: #4996a2;
 }
 
 .assistant-heading {
+  flex: 1;
   text-align: center;
-  margin-bottom: 20px;
   font-size: 1.5rem;
   color: #1d3f72;
 }
 
+/* Messages container */
 .messages {
   flex-grow: 1;
   scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none;
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
   padding: 10px;
   background-color: #fff;
   overflow-y: auto;
   scroll-behavior: smooth;
   margin-bottom: 60px;
   text-align: left;
-
 }
 
-.assistant-heading{
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
+/* Message styles */
 .message {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  display: flex;
   font-family: 'Courier New', Courier, monospace;
   max-width: 50%;
   border-radius: 10px;
   word-wrap: break-word;
-
-  /* Glassmorphism styles */
-  background: rgba(255, 255, 255, 0.1); /* Lower opacity for less transparency */
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism styles */
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .message.user {
@@ -69,25 +76,24 @@
   margin-right: auto;
 }
 
+/* Input form */
 .input-form {
-    position: fixed;
-    bottom: 0; 
-    left: 0; 
-    width: 100%; 
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: #fff;
-    animation: none;
-    transform: translateY(100vh); /* Initially moves the input form off-screen */
-    transition: transform 0.5s ease-out;
-
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  animation: none;
+  transform: translateY(100vh); /* Initially moves the input form off-screen */
+  transition: transform 0.5s ease-out;
 }
 
 .input-form.active {
-    transform: translateY(0); /* Brings the input form into its intended position */
+  transform: translateY(0); /* Brings the input form into its intended position */
 }
-
 
 .input-form input {
   flex-grow: 1;
@@ -119,17 +125,16 @@
 
 /* Animation for first-time loading */
 @keyframes fadeInLeftToRight {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .first-load-animation:not(.input-form) {
-    animation: fadeInLeftToRight 0.5s ease-out;
+  animation: fadeInLeftToRight 0.5s ease-out;
 }
-

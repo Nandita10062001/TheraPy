@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'; // Import the back arrow icon
+import { useNavigate } from 'react-router-dom';
 import './HealthAssistant.css';
 
 const HealthAssistant = () => {
@@ -7,6 +10,7 @@ const HealthAssistant = () => {
   const [firstLoad, setFirstLoad] = useState(true);
   const [inputActive, setInputActive] = useState(false); // New state to control the input form's visibility
 
+  const navigate = useNavigate(); // Initialize useHistory hook
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -52,23 +56,34 @@ const HealthAssistant = () => {
     }
   }, [firstLoad]);
 
+  const handleBackButtonClick = () => {
+    navigate("/landingpage"); // Navigate to landingpage
+  };
+
   return (
     <div className={`mental-health-assistant ${firstLoad ? 'first-load-animation' : ''}`}>
-      <h2 className="assistant-heading">Mental Health Virtual Assistant</h2>
-      <div className="messages">
-  {messages.map((message, index) => (
-    <div key={index} className={`message ${message.sender}`}>
-      {message.meme && (
-        <img
-          src={message.meme}
-          alt="Meme"
-          className="meme-image"
+      <div className="header">
+        <FontAwesomeIcon 
+          icon={faArrowLeft} 
+          className="back-button" 
+          onClick={handleBackButtonClick} 
         />
-      )}
-      {message.text && <p className="message-text">{message.text}</p>}
-    </div>
-  ))}
-</div>
+        <h2 className="assistant-heading">Mental Health Virtual Assistant</h2>
+      </div>
+      <div className="messages">
+        {messages.map((message, index) => (
+          <div key={index} className={`message ${message.sender}`}>
+            {message.meme && (
+              <img
+                src={message.meme}
+                alt="Meme"
+                className="meme-image"
+              />
+            )}
+            {message.text && <p className="message-text">{message.text}</p>}
+          </div>
+        ))}
+      </div>
       <form onSubmit={handleSubmit} className={`input-form ${inputActive ? 'active' : ''}`}>
         <input
           type="text"
@@ -86,3 +101,4 @@ const HealthAssistant = () => {
 };
 
 export default HealthAssistant;
+

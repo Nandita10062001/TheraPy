@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'; // Import the back arrow icon
+import { useNavigate } from 'react-router-dom';
 import './MindCare.css';
 
 const conditions = [
@@ -21,6 +24,8 @@ const MindCare = () => {
   const [answers, setAnswers] = useState([]);
   const [chatHistory, setChatHistory] = useState([]);
   const [analysis, setAnalysis] = useState('');
+
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const fetchQuestions = (condition) => {
     const dummyQuestions = {
@@ -83,27 +88,26 @@ const MindCare = () => {
       // If there are no more questions, proceed to the analysis stage
       setStage('showAnalysis');
 
-      fetch('http://127.0.0.1:5000/'+selectedCondition, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ message: answers }),
-    })
-      .then(response => response.json())
-      .then(data => {
-        setAnalysis(data.analysis);
-    })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+      fetch('http://127.0.0.1:5000/' + selectedCondition, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: answers }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          setAnalysis(data.analysis);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
 
     }
 
     // Finally, add the current answer to the answers array
     setAnswers([...answers, answer]);
   };
-
 
   const handleContinue = (decision) => {
     if (decision === 'Y') {
@@ -116,9 +120,20 @@ const MindCare = () => {
     }
   };
 
+  const handleBackButtonClick = () => {
+    navigate("/landingpage"); // Navigate to landingpage
+  };
+
   return (
     <div className="mind-care-container">
-      <h2 className='heading'>MindCare: Your Diagnostic Partner</h2>
+      <div className="header">
+        <FontAwesomeIcon 
+          icon={faArrowLeft} 
+          className="back-button" 
+          onClick={handleBackButtonClick} 
+        />
+        <h2 className='heading'>MindCare: Your Diagnostic Partner</h2>
+      </div>
       {stage === 'selectCondition' && (
         <div className="condition-selection">
           <p>Which condition would you like to check for?</p>
@@ -157,3 +172,4 @@ const MindCare = () => {
 };
 
 export default MindCare;
+
