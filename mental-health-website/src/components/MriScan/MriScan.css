@@ -1,108 +1,134 @@
-/* HealthAssistant.css */
-
 .mental-health-assistant {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    background-color: #fff;
-    font-family: 'Arial', sans-serif;
-    overflow: hidden;
-  }
-  
-  .assistant-heading {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    color: #1d3f72;
-  }
-  
-  .messages {
-    flex-grow: 1;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    margin-bottom: 60px;
-    padding-bottom: 10px;
-    background-color: #fff;
-  }
-  
-  .message {
-    display: flex;
-    font-family: 'Courier New', Courier, monospace;
-    max-width: 60%;
-    margin-bottom: 15px;
-    padding: 20px 24px;
-    border-radius: 4px;
-    word-wrap: break-word;
-  
-    /* Glassmorphism styles */
-    background: rgba(255, 255, 255, 0.1); /* Lower opacity for less transparency */
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
-  }
-  
-  .message.user {
-    align-self: flex-end;
-    background-color: #5699d2;
-    color: #fff;
-    margin-left: auto;
-  }
-  
-  .message.bot {
-    align-self: flex-start;
-    background-color: #d8ebf9;
-    color: #1d3f72;
-    margin-right: auto;
-  }
-  
-  .input-form {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: #fff;
-    animation: none;
-    transform: translateY(100vh); /* Initially moves the input form off-screen */
-    transition: transform 0.5s ease-out;
-  }
-  
-  .input-form.active {
-    transform: translateY(0); /* Brings the input form into its intended position */
-  }
-  
-  .input-form input {
-    flex-grow: 1;
-    padding: 20px;
-    margin-right: 10px;
-    border: 1px solid #71c2cc;
-    border-radius: 20px;
-    background-color: #d8ebf9;
-    outline: none;
-  }
-  
-  .input-form input:focus {
-    border-color: #1d3f72;
-  }
-  
-  .input-form button {
-    padding: 20px 30px;
-    border: none;
-    border-radius: 20px;
-    background-color: #1d3f72;
-    color: #fff;
-    cursor: pointer;
-    margin-right: 15px;
-  }
-  
-  .input-form button:hover {
-    background-color: #4996a2;
-  }
-  
-  .uploaded-image {
-    max-width: 100%;
-    height: auto;
-    margin-top: 10px; /* Adjust spacing as needed */
-    border-radius: 4px;
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+/* Header with back button */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.back-button {
+  font-size: 1.5rem;
+  color: #1d3f72;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.back-button:hover {
+  color: #4996a2;
+}
+
+.assistant-heading {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #1d3f72;
+}
+
+.message-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  margin-bottom: 60px;
+  padding-bottom: 10px;
+  background-color: #fff;
+}
+
+.message {
+  display: flex;
+  font-family: 'Courier New', Courier, monospace;
+  max-width: 60%;
+  margin-bottom: 15px;
+  padding: 20px 24px;
+  border-radius: 4px;
+  word-wrap: break-word;
+
+  /* Glassmorphism styles */
+  background: rgba(255, 255, 255, 0.1); /* Lower opacity for less transparency */
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: #5699d2;
+  color: #fff;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  margin-right: 15px;
+}
+
+.message-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+/* Align messages from the bot */
+.message.bot {
+  align-self: flex-start;
+  background-color: #d8ebf9;
+  color: #1d3f72;
+  margin-right: auto;
+  text-align: justify;
+  margin-left: 15px;
+}
+
+.input-form {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  animation: none;
+  transform: translateY(100vh); /* Initially moves the input form off-screen */
+  transition: transform 0.5s ease-out;
+}
+
+.input-form.active {
+  transform: translateY(0); /* Brings the input form into its intended position */
+}
+
+.input-form input {
+  flex-grow: 1;
+  padding: 20px;
+  margin-right: 10px;
+  border: 1px solid #71c2cc;
+  border-radius: 20px;
+  background-color: #d8ebf9;
+  outline: none;
+}
+
+.input-form input:focus {
+  border-color: #1d3f72;
+}
+
+.input-form button {
+  padding: 20px 30px;
+  border: none;
+  border-radius: 20px;
+  background-color: #1d3f72;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.input-form button:hover {
+  background-color: #4996a2;
+}
